@@ -3,41 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>邮票锯齿边框实现 | rockets1131的博客</title>
+    <title>post | rockets1131的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="背景在实现抵用券样式的时候，需要实现类似于邮票的锯齿边框效果，如下图：
-之前的实现方式是通过锯齿的png图作为border然后重复作为实现。这样做的缺点是：
-
-配色需要与抵用券的背景颜色保持一致，可扩展性较差。
-锯齿的半径固定，不同分辨率的客户端下，显示效果不一致，适配性较弱。
-
-有没有方法能够直接用css样式直接实现呢？
-初步思路初步思路就是在背景的边框上每隔一段间距画圆，圆的圆心位于边框上,就">
+    <meta name="description" content="背景CSS绘制气泡的方式，在文章《纯CSS实现各类气球泡泡对话框效果》中有主要的介绍，包括“字符法”与“边框法”。而当气泡具有边框线的时候，该方法会不适用，本文主要介绍在具有边框线效果的情况下如何绘制气泡。
+思路主要思路是通过添加元素或before after伪元素进行绘制。
+过程绘制元素123456789&amp;amp;:before &amp;#123;truecontent: &apos; &apos;;    width:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="邮票锯齿边框实现">
-<meta property="og:url" content="http://yoursite.com/2016/08/03/stamp/index.html">
+<meta property="og:title" content="post">
+<meta property="og:url" content="http://yoursite.com/2017/01/12/post/index.html">
 <meta property="og:site_name" content="rockets1131的博客">
-<meta property="og:description" content="背景在实现抵用券样式的时候，需要实现类似于邮票的锯齿边框效果，如下图：
-之前的实现方式是通过锯齿的png图作为border然后重复作为实现。这样做的缺点是：
-
-配色需要与抵用券的背景颜色保持一致，可扩展性较差。
-锯齿的半径固定，不同分辨率的客户端下，显示效果不一致，适配性较弱。
-
-有没有方法能够直接用css样式直接实现呢？
-初步思路初步思路就是在背景的边框上每隔一段间距画圆，圆的圆心位于边框上,就">
-<meta property="og:image" content="http://yoursite.com/css/images/page/stamp.jpg">
-<meta property="og:updated_time" content="2016-09-12T09:10:09.000Z">
+<meta property="og:description" content="背景CSS绘制气泡的方式，在文章《纯CSS实现各类气球泡泡对话框效果》中有主要的介绍，包括“字符法”与“边框法”。而当气泡具有边框线的时候，该方法会不适用，本文主要介绍在具有边框线效果的情况下如何绘制气泡。
+思路主要思路是通过添加元素或before after伪元素进行绘制。
+过程绘制元素123456789&amp;amp;:before &amp;#123;truecontent: &apos; &apos;;    width:">
+<meta property="og:updated_time" content="2017-01-12T10:54:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="邮票锯齿边框实现">
-<meta name="twitter:description" content="背景在实现抵用券样式的时候，需要实现类似于邮票的锯齿边框效果，如下图：
-之前的实现方式是通过锯齿的png图作为border然后重复作为实现。这样做的缺点是：
-
-配色需要与抵用券的背景颜色保持一致，可扩展性较差。
-锯齿的半径固定，不同分辨率的客户端下，显示效果不一致，适配性较弱。
-
-有没有方法能够直接用css样式直接实现呢？
-初步思路初步思路就是在背景的边框上每隔一段间距画圆，圆的圆心位于边框上,就">
-<meta name="twitter:image" content="http://yoursite.com/css/images/page/stamp.jpg">
+<meta name="twitter:title" content="post">
+<meta name="twitter:description" content="背景CSS绘制气泡的方式，在文章《纯CSS实现各类气球泡泡对话框效果》中有主要的介绍，包括“字符法”与“边框法”。而当气泡具有边框线的时候，该方法会不适用，本文主要介绍在具有边框线效果的情况下如何绘制气泡。
+思路主要思路是通过添加元素或before after伪元素进行绘制。
+过程绘制元素123456789&amp;amp;:before &amp;#123;truecontent: &apos; &apos;;    width:">
     
 
     
@@ -230,7 +213,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-stamp" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-post" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -238,7 +221,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            邮票锯齿边框实现
+            post
         </h1>
     
 
@@ -247,19 +230,14 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/08/03/stamp/">
-            <time datetime="2016-08-03T03:20:58.000Z" itemprop="datePublished">2016-08-03</time>
+        <a href="/2017/01/12/post/">
+            <time datetime="2017-01-12T10:50:32.000Z" itemprop="datePublished">2017-01-12</time>
         </a>
     </div>
 
 
                         
                         
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/CSS3/">CSS3</a>
-    </div>
-
                     </div>
                 
             </header>
@@ -268,59 +246,36 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在实现抵用券样式的时候，需要实现类似于邮票的锯齿边框效果，如下图：<br><img src="css/images/page/stamp.jpg" style="width:300px"></p>
-<p>之前的实现方式是通过锯齿的png图作为border然后重复作为实现。这样做的缺点是：</p>
-<ul>
-<li>配色需要与抵用券的背景颜色保持一致，可扩展性较差。</li>
-<li>锯齿的半径固定，不同分辨率的客户端下，显示效果不一致，适配性较弱。</li>
-</ul>
-<p>有没有方法能够直接用css样式直接实现呢？</p>
-<h2 id="初步思路"><a href="#初步思路" class="headerlink" title="初步思路"></a>初步思路</h2><p>初步思路就是在背景的边框上每隔一段间距画圆，圆的圆心位于边框上,就可以实现邮票锯齿效果。</p>
-<h3 id="radial-gradient-实现圆点背景"><a href="#radial-gradient-实现圆点背景" class="headerlink" title="radial-gradient 实现圆点背景"></a>radial-gradient 实现圆点背景</h3><p><code>radial-gradient</code> 径向渐变是从一个点向四周的颜色渐变。W3C标准语法如下：</p>
-<blockquote>
-<p>radial-gradient( [ [ &lt; shape &gt; || &lt; size &gt; ] [ at &lt; position &gt; ]? , | at &lt; position &gt; ,]? &lt; color-stop &gt; [ , &lt; color-stop &gt; ]+);</p>
-</blockquote>
-<h4 id="主要参数："><a href="#主要参数：" class="headerlink" title="主要参数："></a>主要参数：</h4><p><code>position</code><br>position与background-position或者transform-origin类似。如缺省，默认为中心点。其值主要有以下几种：</p>
-<ul>
-<li>&lt; length &gt;：用长度值指定径向渐变圆心的横坐标或纵坐标。可以为负值。</li>
-<li>&lt; percentage &gt;：用百分比指定径向渐变圆心的横坐标或纵坐标。可以为负值。</li>
-<li>left：设置左边为径向渐变圆心的横坐标值。</li>
-<li>center：设置中间为径向渐变圆心的横坐标值或纵坐标。</li>
-<li>right：设置右边为径向渐变圆心的横坐标值。</li>
-<li>top：设置顶部为径向渐变圆心的纵标值。</li>
-<li>bottom：设置底部为径向渐变圆心的纵标值。</li>
-</ul>
-<p><code>shape</code><br>渐变的形状。圆形”circle”或椭圆形”ellipse”。默认值为椭圆。</p>
-<ul>
-<li>circle：如果”size”和”length”大小相等，那么径向渐变是一个圆形。</li>
-<li>ellipse：如果”size”和”length”大小不相等，那么径向渐变是一个椭圆形。</li>
-</ul>
-<p><code>size</code><br>渐变的尺寸大小。</p>
-<p><code>color-stop</code><br>表示确定位置的固定色值，包含一个&lt; color &gt;值加上可选的位置值（相对虚拟渐变射线的&lt; percentage &gt;或者&lt; length &gt;长度值）。 百分比值0%，或者长度值0，表示渐变中心点；百分比值100%表示渐变射线与边缘形状相交的点。 其间的百分比值线性对应渐变射线上的点。</p>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">300px</span>;</div><div class="line">    <span class="attribute">background-image</span>: <span class="built_in">radial-gradient</span>(white, red);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>实现效果</p>
-<div id="example1"></div>
+            <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>CSS绘制气泡的方式，在文章<a href="http://www.zhangxinxu.com/wordpress/2010/03/%E7%BA%AFcss%E5%AE%9E%E7%8E%B0%E5%90%84%E7%B1%BB%E6%B0%94%E7%90%83%E6%B3%A1%E6%B3%A1%E5%AF%B9%E8%AF%9D%E6%A1%86%E6%95%88%E6%9E%9C/" target="_blank" rel="external">《纯CSS实现各类气球泡泡对话框效果》</a>中有主要的介绍，包括“字符法”与“边框法”。而当气泡具有边框线的时候，该方法会不适用，本文主要介绍在具有边框线效果的情况下如何绘制气泡。</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>主要思路是通过添加元素或before after伪元素进行绘制。</p>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><h4 id="绘制元素"><a href="#绘制元素" class="headerlink" title="绘制元素"></a>绘制元素</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">&amp;</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">true<span class="attribute">content</span>: <span class="string">' '</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">20</span>*<span class="variable">@unit</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">20</span>*<span class="variable">@unit</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="variable">@background</span>;</div><div class="line">    <span class="attribute">border</span>: solid <span class="number">1px</span> <span class="variable">@border</span>;</div><div class="line">    <span class="attribute">border-right-color</span>: <span class="variable">@background</span>;</div><div class="line">    <span class="attribute">border-bottom-color</span>: <span class="variable">@background</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 上述代码绘制出的效果是具有上边框线和左边框线的方块。</p>
+<h4 id="对元素进行旋转和定位"><a href="#对元素进行旋转和定位" class="headerlink" title="对元素进行旋转和定位"></a>对元素进行旋转和定位</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">&amp;</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">true<span class="attribute">position</span>: absolute;</div><div class="line">true<span class="attribute">top</span>: -<span class="number">10</span>*<span class="variable">@unit</span>;</div><div class="line">    <span class="attribute">left</span>: <span class="number">50</span>*<span class="variable">@unit</span>;</div><div class="line">    <span class="attribute">transform</span>: rotate(<span class="number">45deg</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h4><div id="bubble"></div>
 
-<p>“size”缺省值为farthest-corner，即渐变到达最远边框。</p>
-<p>当颜色的终止值和下一个颜色初始值相同，或下一个颜色初始值为0时，即可画出圆形。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">background-image</span>: <span class="built_in">radial-gradient</span>(white 50px, red 0);</div><div class="line">    <span class="attribute">background-size</span>: <span class="number">300px</span> <span class="number">300px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>实现效果</p>
-<div id="example2"></div>
-
-<p>利用这种方式，在一个边框重复，即可实现邮票锯齿边框效果。我们设置：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">background-image</span>: <span class="built_in">radial-gradient</span>(white 5px, transparent 0);</div><div class="line">    <span class="attribute">background-size</span>: <span class="number">20px</span> <span class="number">20px</span>;</div><div class="line">    <span class="attribute">background-position</span>: -<span class="number">10px</span> <span class="number">0</span>;</div><div class="line">    <span class="attribute">background-repeat</span>: repeat-y;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>实现效果</p>
-<div id="example3"></div>
-
-<p>其中圆点半径为 “5px” ，锯齿图片大小为 “background-size 20px 20px” ，并向左偏移 “10px” ，在y轴重复，即可实现左边边框的锯齿效果。</p>
-<h2 id="进一步扩展"><a href="#进一步扩展" class="headerlink" title="进一步扩展"></a>进一步扩展</h2><p>目前主要实现了一边锯齿的效果。那么，如何扩展实现4边锯齿效果呢？<br>我们需要解决一个问题：如何在布局大小不确定的情况下绘制右边以及下边边框？</p>
-<h3 id="CSS3的calc"><a href="#CSS3的calc" class="headerlink" title="CSS3的calc()"></a>CSS3的calc()</h3><p>calc()可以理解为一个函数function。calc是英文单词calculate(计算)的缩写，是css3的一个新增的功能，用于动态给元素的border、margin、padding、font-size和width等属性设置动态值。<br>你可以给一个div元素，使用百分比、em、px和rem单位值计算出其宽度或者高度，比如说“width:calc(50% + 2em)”，这样一来你就不用考虑元素div的宽度值到底是多少，而把这个烦人的任务交由浏览器去计算。</p>
-<h3 id="通过calc-计算右边及下边边框的位置"><a href="#通过calc-计算右边及下边边框的位置" class="headerlink" title="通过calc()计算右边及下边边框的位置"></a>通过calc()计算右边及下边边框的位置</h3><p>布局大小不确定的情况下，我们需要确定右边以及下边边框的 <code>background-position</code> 。<br>由于当前的 <code>background-size</code> 为20px。因此右边的边框的 <code>background-position</code> 的x轴需增加10px；而下边边框的 <code>background-position</code> 的y轴需增加10px。<br>因此，右边和下边边框的 <code>background-position</code> 的计算公式分别为 <code>calc(100%+10px) 0</code>, <code>0 calc(100%+10px)</code> 。<br>从而得到自适应布局大小的邮票边框样式：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">    <span class="attribute">background-image</span>: <span class="built_in">radial-gradient</span>(white 5px, transparent 0),</div><div class="line">                      <span class="built_in">radial-gradient</span>(white 5px, transparent 0),</div><div class="line">                      <span class="built_in">radial-gradient</span>(white 5px, transparent 0),</div><div class="line">                      <span class="built_in">radial-gradient</span>(white 5px, transparent 0);</div><div class="line">    <span class="attribute">background-size</span>: <span class="number">20px</span> <span class="number">20px</span>;</div><div class="line">    <span class="attribute">background-position</span>: -<span class="number">10px</span> <span class="number">0</span>, <span class="built_in">calc</span>(100%+10px) <span class="number">0</span>, <span class="number">0</span> -<span class="number">10px</span>, <span class="number">0</span> <span class="built_in">calc</span>(100%+10px);</div><div class="line">    <span class="attribute">background-repeat</span>: repeat-y, repeat-y, repeat-x, repeat-x;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>最终效果为：</p>
-<div id="example4"></div>
-
-
-
-
+<style type="text/css">
+#bubble {
+    position: relative;
+    width: 150px;
+    height: 100px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    background-color: red;
+}
+#bubble:before {
+    content: ' ';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -11px;
+    left: 50px;
+    background-color: red;
+    border: solid 1px gray;
+    border-right-style: none;
+    border-bottom-style: none;
+    transform: rotate(45deg);
+}
+</style>
 
 
         
@@ -332,7 +287,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/08/03/stamp/" data-id="cixu980vj00048c9khnd84zjy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/01/12/post/" data-id="cixu980vd00018c9kfu10oap1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -400,7 +355,7 @@
 
             
     
-        <a href="http://yoursite.com/2016/08/03/stamp/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2016/08/03/stamp/">评论</a>
+        <a href="http://yoursite.com/2017/01/12/post/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2017/01/12/post/">评论</a>
     
 
         </footer>
@@ -409,19 +364,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2016/10/09/regular-expressions/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/01/18/Promise/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    正则表达式学习
+                    Promise对象
                 
             </div>
         </a>
     
     
-        <a href="/2016/06/17/Markdown-rule/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/10/09/regular-expressions/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Markdown语法的简要规则</div>
+            <div class="article-nav-title">正则表达式学习</div>
         </a>
     
 </nav>
@@ -614,9 +569,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://yoursite.com/2016/08/03/stamp/';
+            this.page.url = 'http://yoursite.com/2017/01/12/post/';
         
-        this.page.identifier = 'stamp';
+        this.page.identifier = 'post';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
