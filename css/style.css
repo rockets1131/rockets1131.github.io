@@ -428,6 +428,9 @@ code {
     display: none;
   }
 }
+#main-nav {
+  margin-left: 50px;
+}
 @media screen and (min-width: 560px) and (max-width: 799px) {
   #main-nav {
     display: none;

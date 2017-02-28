@@ -3,17 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档: 2017/1 | rockets1131的博客</title>
+    <title>CSS 绘制气泡 | rockets1131的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="rockets1131的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="rockets1131的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2017/01/index.html">
+    <meta name="description" content="背景CSS绘制气泡的方式，在文章《纯CSS实现各类气球泡泡对话框效果》中有主要的介绍，包括“字符法”与“边框法”。而当气泡具有边框线的时候，该方法会不适用，本文主要介绍在具有边框线效果的情况下如何绘制气泡。
+思路主要思路是通过添加元素或before after伪元素进行绘制。
+过程绘制元素123456789&amp;amp;:before &amp;#123;truecontent: &apos; &apos;;    width:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 绘制气泡">
+<meta property="og:url" content="http://yoursite.com/2017/01/12/CSS-bubble/index.html">
 <meta property="og:site_name" content="rockets1131的博客">
-<meta property="og:description" content="rockets1131的博客">
+<meta property="og:description" content="背景CSS绘制气泡的方式，在文章《纯CSS实现各类气球泡泡对话框效果》中有主要的介绍，包括“字符法”与“边框法”。而当气泡具有边框线的时候，该方法会不适用，本文主要介绍在具有边框线效果的情况下如何绘制气泡。
+思路主要思路是通过添加元素或before after伪元素进行绘制。
+过程绘制元素123456789&amp;amp;:before &amp;#123;truecontent: &apos; &apos;;    width:">
+<meta property="og:updated_time" content="2017-02-28T02:42:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rockets1131的博客">
-<meta name="twitter:description" content="rockets1131的博客">
+<meta name="twitter:title" content="CSS 绘制气泡">
+<meta name="twitter:description" content="背景CSS绘制气泡的方式，在文章《纯CSS实现各类气球泡泡对话框效果》中有主要的介绍，包括“字符法”与“边框法”。而当气泡具有边框线的时候，该方法会不适用，本文主要介绍在具有边框线效果的情况下如何绘制气泡。
+思路主要思路是通过添加元素或before after伪元素进行绘制。
+过程绘制元素123456789&amp;amp;:before &amp;#123;truecontent: &apos; &apos;;    width:">
     
 
     
@@ -210,51 +217,21 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2017</h1>
-            </div>
+            <section id="main"><article id="post-CSS-bubble" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/01/18/Promise/">Promise对象</a>
+        <h1 class="article-title" itemprop="name">
+            CSS 绘制气泡
         </h1>
     
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/18/Promise/">
-            <time datetime="2017-01-18T05:54:32.000Z" itemprop="datePublished">2017-01-18</time>
-        </a>
-    </div>
-
-
-                    
-                    
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/01/12/CSS-bubble/">CSS 绘制气泡</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2017/01/12/CSS-bubble/">
@@ -263,13 +240,167 @@
     </div>
 
 
-                    
-                    
-                </div>
-            </div>
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>CSS绘制气泡的方式，在文章<a href="http://www.zhangxinxu.com/wordpress/2010/03/%E7%BA%AFcss%E5%AE%9E%E7%8E%B0%E5%90%84%E7%B1%BB%E6%B0%94%E7%90%83%E6%B3%A1%E6%B3%A1%E5%AF%B9%E8%AF%9D%E6%A1%86%E6%95%88%E6%9E%9C/" target="_blank" rel="external">《纯CSS实现各类气球泡泡对话框效果》</a>中有主要的介绍，包括“字符法”与“边框法”。而当气泡具有边框线的时候，该方法会不适用，本文主要介绍在具有边框线效果的情况下如何绘制气泡。</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>主要思路是通过添加元素或before after伪元素进行绘制。</p>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><h4 id="绘制元素"><a href="#绘制元素" class="headerlink" title="绘制元素"></a>绘制元素</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">&amp;</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">true<span class="attribute">content</span>: <span class="string">' '</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">20</span>*<span class="variable">@unit</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">20</span>*<span class="variable">@unit</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="variable">@background</span>;</div><div class="line">    <span class="attribute">border</span>: solid <span class="number">1px</span> <span class="variable">@border</span>;</div><div class="line">    <span class="attribute">border-right-color</span>: <span class="variable">@background</span>;</div><div class="line">    <span class="attribute">border-bottom-color</span>: <span class="variable">@background</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 上述代码绘制出的效果是具有上边框线和左边框线的方块。</p>
+<h4 id="对元素进行旋转和定位"><a href="#对元素进行旋转和定位" class="headerlink" title="对元素进行旋转和定位"></a>对元素进行旋转和定位</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">&amp;</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">true<span class="attribute">position</span>: absolute;</div><div class="line">true<span class="attribute">top</span>: -<span class="number">10</span>*<span class="variable">@unit</span>;</div><div class="line">    <span class="attribute">left</span>: <span class="number">50</span>*<span class="variable">@unit</span>;</div><div class="line">    <span class="attribute">transform</span>: rotate(<span class="number">45deg</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h4><div id="bubble"></div>
+
+<style type="text/css">
+#bubble {
+    position: relative;
+    width: 150px;
+    height: 100px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    background-color: red;
+}
+#bubble:before {
+    content: ' ';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -11px;
+    left: 50px;
+    background-color: red;
+    border: solid 1px gray;
+    border-right-style: none;
+    border-bottom-style: none;
+    transform: rotate(45deg);
+}
+</style>
+
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://yoursite.com/2017/01/12/CSS-bubble/" data-id="cizoxkwl10002lw9kpkpd9afh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://yoursite.com/2017/01/12/CSS-bubble/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2017/01/12/CSS-bubble/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/01/18/Promise/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Promise对象
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/10/09/regular-expressions/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">正则表达式学习</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
@@ -442,11 +573,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'http://yoursite.com/2017/01/12/CSS-bubble/';
+        
+        this.page.identifier = 'CSS-bubble';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/count.js';
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();

@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="rockets1131的博客">
 <meta property="og:description" content="Promise对象Promise的含义Promise是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。它由社区最早提出和实现，ES6将其写进了语言标准，统一了用法，原生提供了Promise对象。
 所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise是一个对象，从它可以获取异步操作的消息。Pro">
-<meta property="og:updated_time" content="2017-01-18T07:30:25.000Z">
+<meta property="og:updated_time" content="2017-01-18T07:31:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Promise对象">
 <meta name="twitter:description" content="Promise对象Promise的含义Promise是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。它由社区最早提出和实现，ES6将其写进了语言标准，统一了用法，原生提供了Promise对象。
@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
 
     <link rel="stylesheet" href="/css/style.css">
+    
 
     <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
     
@@ -54,7 +55,10 @@
                 <i class="logo"></i>
                 <span class="site-title">rockets1131的博客</span>
             </a>
+            <!--加切换效果-->
+            <h1></h1>
             <nav id="main-nav">
+
                 
                     <a class="main-nav-link" href="/.">首页</a>
                 
@@ -158,11 +162,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                6
+                7
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                2
+                3
                 <span>标签</span>
             </div>
         </div>
@@ -247,13 +251,11 @@
 <p>所谓<code>Promise</code>，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise是一个对象，从它可以获取异步操作的消息。Promise提供统一的API，各种异步操作都可以用同样的方法进行处理。</p>
 <h2 id="Promise的特点"><a href="#Promise的特点" class="headerlink" title="Promise的特点"></a>Promise的特点</h2><p><code>Promise</code>对象有以下两个特点。</p>
 <ol>
-<li>对象的状态不受外界影响。</li>
+<li><p>对象的状态不受外界影响。<code>Promise</code>对象代表一个异步操作，有三种状态：<code>Pending</code>（进行中）、<code>Resolved</code>（已完成，又称Fulfilled）和<code>Rejected</code>（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。这也是<code>Promise</code>这个名字的由来，它的英语意思就是“承诺”，表示其他手段无法改变。</p>
+</li>
+<li><p>一旦状态改变，就不会再变，任何时候都可以得到这个结果。<code>Promise</code>对象的状态改变，只有两种可能：从<code>Pending</code>变为<code>Resolved</code>和从<code>Pending</code>变为<code>Rejected</code>。只要这两种情况发生，状态就凝固了，不会再变了，会一直保持这个结果。就算改变已经发生了，你再对<code>Promise</code>对象添加回调函数，也会立即得到这个结果。这与事件（Event）完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的。</p>
+</li>
 </ol>
-<p><code>Promise</code>对象代表一个异步操作，有三种状态：<code>Pending</code>（进行中）、<code>Resolved</code>（已完成，又称Fulfilled）和<code>Rejected</code>（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。这也是<code>Promise</code>这个名字的由来，它的英语意思就是“承诺”，表示其他手段无法改变。</p>
-<ol>
-<li>一旦状态改变，就不会再变，任何时候都可以得到这个结果。</li>
-</ol>
-<p><code>Promise</code>对象的状态改变，只有两种可能：从<code>Pending</code>变为<code>Resolved</code>和从<code>Pending</code>变为<code>Rejected</code>。只要这两种情况发生，状态就凝固了，不会再变了，会一直保持这个结果。就算改变已经发生了，你再对<code>Promise</code>对象添加回调函数，也会立即得到这个结果。这与事件（Event）完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的。</p>
 <p>有了<code>Promise</code>对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，<code>Promise</code>对象提供统一的接口，使得控制异步操作更加容易。</p>
 <p><code>Promise</code>也有一些缺点。首先，无法取消<code>Promise</code>，一旦新建它就会立即执行，无法中途取消。其次，如果不设置回调函数，<code>Promise</code>内部抛出的错误，不会反应到外部。第三，当处于<code>Pending</code>状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。</p>
 <p>如果某些事件不断地反复发生，一般来说，使用stream模式是比部署<code>Promise</code>更好的选择。</p>
@@ -432,7 +434,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/01/18/Promise/" data-id="ciy2mpsai00025t9kgdgg0bdv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2017/01/18/Promise/" data-id="cizoxkwlf0006lw9kat2dxe65" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -509,10 +511,19 @@
         
 <nav id="article-nav">
     
+        <a href="/2017/02/28/React-study-1/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    React 源码学习(1) —— 组织结构
+                
+            </div>
+        </a>
     
-        <a href="/2017/01/12/post/" id="article-nav-older" class="article-nav-link-wrap">
+    
+        <a href="/2017/01/12/CSS-bubble/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">post</div>
+            <div class="article-nav-title">CSS 绘制气泡</div>
         </a>
     
 </nav>
@@ -546,6 +557,25 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2017/02/28/React-study-1/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/02/28/React-study-1/" class="title">React 源码学习(1) —— 组织结构</a></p>
+                            <p class="item-date"><time datetime="2017-02-28T02:43:19.000Z" itemprop="datePublished">2017-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2017/01/18/Promise/" class="thumbnail">
     
     
@@ -565,7 +595,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2017/01/12/post/" class="thumbnail">
+                            <a href="/2017/01/12/CSS-bubble/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -576,7 +606,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/01/12/post/" class="title">post</a></p>
+                            <p class="item-title"><a href="/2017/01/12/CSS-bubble/" class="title">CSS 绘制气泡</a></p>
                             <p class="item-date"><time datetime="2017-01-12T10:50:32.000Z" itemprop="datePublished">2017-01-12</time></p>
                         </div>
                     </li>
@@ -619,25 +649,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/06/17/Markdown-rule/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/06/17/Markdown-rule/" class="title">Markdown语法的简要规则</a></p>
-                            <p class="item-date"><time datetime="2016-06-17T05:54:32.000Z" itemprop="datePublished">2016-06-17</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -649,7 +660,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -658,7 +669,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -667,7 +678,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a>
+            <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/React/" style="font-size: 10px;">React</a>
         </div>
     </div>
 
