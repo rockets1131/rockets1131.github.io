@@ -8,7 +8,7 @@
     <meta name="description" content="rockets1131的博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="rockets1131的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://rockets1131.github.io/index.html">
 <meta property="og:site_name" content="rockets1131的博客">
 <meta property="og:description" content="rockets1131的博客">
 <meta name="twitter:card" content="summary">
@@ -158,7 +158,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                7
+                8
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -211,7 +211,7 @@
 
             
             <section id="main">
-    <article id="post-React-study-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-React-study-2" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -219,7 +219,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2017/02/28/React-study-1/">React 源码学习(1) —— 组织结构</a>
+            <a class="article-title" href="/2017/02/28/React-study-2/">React 源码学习(2) —— Virtual Dom 模型</a>
         </h1>
     
 
@@ -228,8 +228,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/02/28/React-study-1/">
-            <time datetime="2017-02-28T02:43:19.000Z" itemprop="datePublished">2017-02-28</time>
+        <a href="/2017/02/28/React-study-2/">
+            <time datetime="2017-02-28T11:32:04.000Z" itemprop="datePublished">2017-02-28</time>
         </a>
     </div>
 
@@ -259,7 +259,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/02/28/React-study-1/" data-id="cizoxkwks0000lw9kqr0ode68" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://rockets1131.github.io/2017/02/28/React-study-2/" data-id="cizqc0rcn0006h99kghydosnk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -327,7 +327,150 @@
 
             
     
-        <a href="http://yoursite.com/2017/02/28/React-study-1/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2017/02/28/React-study-1/">评论</a>
+        <a href="http://rockets1131.github.io/2017/02/28/React-study-2/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://rockets1131.github.io/2017/02/28/React-study-2/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-React-study-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/02/28/React-study-1/">React 源码学习(1) —— 组织结构</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/02/28/React-study-1/">
+            <time datetime="2017-02-28T02:43:19.000Z" itemprop="datePublished">2017-02-28</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/React/">React</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h1><p>从 github 上将 react 源码 clone 下来，关键代码都放在 src 目录下，src 目录结构如下：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">├── addons/ <span class="comment">// 工具方法插件</span></div><div class="line">├── isomorphic/ <span class="comment">// 同构方法，抽象层次较高的一些文件、接口或实现，可用于多种环境。React 核心定义。</span></div><div class="line">├── shared/ <span class="comment">// 共享的工具类</span></div><div class="line">├── test/ <span class="comment">// 测试</span></div><div class="line">├── renderers/ <span class="comment">// 核心部分。DOM、Native 等的渲染逻辑</span></div><div class="line">├── ReactVersion<span class="selector-class">.js</span> <span class="comment">// react 版本号</span></div></pre></td></tr></table></figure></p>
+<h1 id="React-接口"><a href="#React-接口" class="headerlink" title="React 接口"></a>React 接口</h1><p>先看一下 React 对外暴露的接口有哪些，直接看 React.js 文件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> React = &#123;</div><div class="line"></div><div class="line">  <span class="comment">// Modern</span></div><div class="line"></div><div class="line">  Children: &#123;</div><div class="line">    <span class="attr">map</span>: ReactChildren.map,</div><div class="line">    <span class="attr">forEach</span>: ReactChildren.forEach,</div><div class="line">    <span class="attr">count</span>: ReactChildren.count,</div><div class="line">    <span class="attr">toArray</span>: ReactChildren.toArray,</div><div class="line">    <span class="attr">only</span>: onlyChild,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">Component</span>: ReactComponent,</div><div class="line">  <span class="attr">PureComponent</span>: ReactPureComponent,</div><div class="line"></div><div class="line">  <span class="attr">createElement</span>: createElement,</div><div class="line">  <span class="attr">cloneElement</span>: cloneElement,</div><div class="line">  <span class="attr">isValidElement</span>: ReactElement.isValidElement,</div><div class="line"></div><div class="line">  <span class="comment">// Classic</span></div><div class="line"></div><div class="line">  PropTypes: ReactPropTypes,</div><div class="line">  <span class="attr">createClass</span>: ReactClass.createClass,</div><div class="line">  <span class="attr">createFactory</span>: createFactory,</div><div class="line">  <span class="attr">createMixin</span>: <span class="function"><span class="keyword">function</span>(<span class="params">mixin</span>) </span>&#123;</div><div class="line">    <span class="comment">// Currently a noop. Will be used to validate and trace mixins.</span></div><div class="line">    <span class="keyword">return</span> mixin;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="comment">// This looks DOM specific but these are actually isomorphic helpers</span></div><div class="line">  <span class="comment">// since they are just generating DOM strings.</span></div><div class="line">  DOM: ReactDOMFactories,</div><div class="line"></div><div class="line">  <span class="attr">version</span>: ReactVersion,</div><div class="line"></div><div class="line">  <span class="comment">// Deprecated hook for JSX spread, don't use this for anything.</span></div><div class="line">  __spread: __spread,</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>下面就其属性，一一进行分析。</p>
+<h2 id="Children-ReactChildren"><a href="#Children-ReactChildren" class="headerlink" title="Children - ReactChildren"></a>Children - ReactChildren</h2><p>ReactChildren 提供了处理 this.props.children 的工具集.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ReactChildren = &#123;</div><div class="line">  <span class="attr">forEach</span>: forEachChildren,</div><div class="line">  <span class="attr">map</span>: mapChildren,</div><div class="line">  <span class="attr">mapIntoWithKeyPrefixInternal</span>: mapIntoWithKeyPrefixInternal,</div><div class="line">  <span class="attr">count</span>: countChildren,</div><div class="line">  <span class="attr">toArray</span>: toArray,</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="Component-ReactComponent"><a href="#Component-ReactComponent" class="headerlink" title="Component - ReactComponent"></a>Component - ReactComponent</h2><p>当使用 ES6 类定义 React 组件时，Component 应当作为基类。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ReactComponent</span>(<span class="params">props, context, updater</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.props = props;</div><div class="line">  <span class="keyword">this</span>.context = context;</div><div class="line">  <span class="keyword">this</span>.refs = emptyObject;</div><div class="line">  <span class="keyword">this</span>.updater = updater || ReactNoopUpdateQueue;</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactComponent.prototype.isReactComponent = &#123;&#125;;</div><div class="line">ReactComponent.prototype.setState = <span class="function"><span class="keyword">function</span>(<span class="params">partialState, callback</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.updater.enqueueSetState(<span class="keyword">this</span>, partialState);</div><div class="line">  <span class="keyword">if</span> (callback) &#123;</div><div class="line">    <span class="keyword">this</span>.updater.enqueueCallback(<span class="keyword">this</span>, callback, <span class="string">'setState'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">ReactComponent.prototype.forceUpdate = <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.updater.enqueueForceUpdate(<span class="keyword">this</span>);</div><div class="line">  <span class="keyword">if</span> (callback) &#123;</div><div class="line">    <span class="keyword">this</span>.updater.enqueueCallback(<span class="keyword">this</span>, callback, <span class="string">'forceUpdate'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="PureComponent-ReactPureComponent"><a href="#PureComponent-ReactPureComponent" class="headerlink" title="PureComponent - ReactPureComponent"></a>PureComponent - ReactPureComponent</h2><p>PureComponent 继承自 ReactComponent，只不过在更新时会对 props 和 state 进行 shallowEqual。</p>
+<h2 id="createElement-cloneElement-createFactory-ReactElement"><a href="#createElement-cloneElement-createFactory-ReactElement" class="headerlink" title="createElement, cloneElement, createFactory - ReactElement"></a>createElement, cloneElement, createFactory - ReactElement</h2><p>这三个接口是为了生成 ReactElement。ReactElement 是个抽象的元素，可以对应 DOM 节点，也可以对应 Native 中的页面元素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ReactElement = <span class="function"><span class="keyword">function</span>(<span class="params">type, key, ref, self, source, owner, props</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> element = &#123;</div><div class="line">    <span class="comment">// This tag allow us to uniquely identify this as a React Element</span></div><div class="line">    $$<span class="keyword">typeof</span>: REACT_ELEMENT_TYPE,</div><div class="line"></div><div class="line">    <span class="comment">// Built-in properties that belong on the element</span></div><div class="line">    type: type,</div><div class="line">    <span class="attr">key</span>: key,</div><div class="line">    <span class="attr">ref</span>: ref,</div><div class="line">    <span class="attr">props</span>: props,</div><div class="line"></div><div class="line">    <span class="comment">// Record the component responsible for creating this element.</span></div><div class="line">    _owner: owner,</div><div class="line">  &#125;;</div><div class="line">  <span class="keyword">return</span> element;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> REACT_ELEMENT_TYPE =</div><div class="line">  (<span class="keyword">typeof</span> <span class="built_in">Symbol</span> === <span class="string">'function'</span> &amp;&amp; <span class="built_in">Symbol</span>.for &amp;&amp; <span class="built_in">Symbol</span>.for(<span class="string">'react.element'</span>)) ||</div><div class="line">  <span class="number">0xeac7</span>;</div></pre></td></tr></table></figure>
+<h2 id="isValidElement-ReactElement-isValidElement"><a href="#isValidElement-ReactElement-isValidElement" class="headerlink" title="isValidElement - ReactElement.isValidElement"></a>isValidElement - ReactElement.isValidElement</h2><p>校验是否是 ReactElement，只需判断其 $$typeof 属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ReactElement.isValidElement = <span class="function"><span class="keyword">function</span>(<span class="params">object</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    <span class="keyword">typeof</span> object === <span class="string">'object'</span> &amp;&amp;</div><div class="line">    object !== <span class="literal">null</span> &amp;&amp;</div><div class="line">    object.$$<span class="keyword">typeof</span> === REACT_ELEMENT_TYPE</div><div class="line">  );</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="PropTypes-ReactPropTypes"><a href="#PropTypes-ReactPropTypes" class="headerlink" title="PropTypes - ReactPropTypes"></a>PropTypes - ReactPropTypes</h2><p>用于对 props 属性进行校验，可用的校验规则有：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ReactPropTypes = &#123;</div><div class="line">  <span class="attr">array</span>: createPrimitiveTypeChecker(<span class="string">'array'</span>),</div><div class="line">  <span class="attr">bool</span>: createPrimitiveTypeChecker(<span class="string">'boolean'</span>),</div><div class="line">  <span class="attr">func</span>: createPrimitiveTypeChecker(<span class="string">'function'</span>),</div><div class="line">  <span class="attr">number</span>: createPrimitiveTypeChecker(<span class="string">'number'</span>),</div><div class="line">  <span class="attr">object</span>: createPrimitiveTypeChecker(<span class="string">'object'</span>),</div><div class="line">  <span class="attr">string</span>: createPrimitiveTypeChecker(<span class="string">'string'</span>),</div><div class="line">  <span class="attr">symbol</span>: createPrimitiveTypeChecker(<span class="string">'symbol'</span>),</div><div class="line"></div><div class="line">  <span class="attr">any</span>: createAnyTypeChecker(),</div><div class="line">  <span class="attr">arrayOf</span>: createArrayOfTypeChecker,</div><div class="line">  <span class="attr">element</span>: createElementTypeChecker(),</div><div class="line">  <span class="attr">instanceOf</span>: createInstanceTypeChecker,</div><div class="line">  <span class="attr">node</span>: createNodeChecker(),</div><div class="line">  <span class="attr">objectOf</span>: createObjectOfTypeChecker,</div><div class="line">  <span class="attr">oneOf</span>: createEnumTypeChecker,</div><div class="line">  <span class="attr">oneOfType</span>: createUnionTypeChecker,</div><div class="line">  <span class="attr">shape</span>: createShapeTypeChecker,</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="createClass-ReactClass-createClass"><a href="#createClass-ReactClass-createClass" class="headerlink" title="createClass - ReactClass.createClass"></a>createClass - ReactClass.createClass</h2><p>根据指定对象，创建组件类。对象中应该至少包含 render 方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> SpecPolicy = keyMirror(&#123;</div><div class="line">  <span class="attr">DEFINE_ONCE</span>: <span class="literal">null</span>, <span class="comment">// 仅定义一次</span></div><div class="line">  DEFINE_MANY: <span class="literal">null</span>, <span class="comment">// 可以定义多次</span></div><div class="line">  OVERRIDE_BASE: <span class="literal">null</span>, <span class="comment">// 重载基类</span></div><div class="line">  DEFINE_MANY_MERGED: <span class="literal">null</span>, <span class="comment">// 可以定义多次，但期望有返回值。</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> ReactClassInterface = &#123;</div><div class="line">  <span class="attr">mixins</span>: SpecPolicy.DEFINE_MANY,</div><div class="line">  <span class="attr">statics</span>: SpecPolicy.DEFINE_MANY,</div><div class="line">  <span class="attr">propTypes</span>: SpecPolicy.DEFINE_MANY,</div><div class="line">  <span class="attr">contextTypes</span>: SpecPolicy.DEFINE_MANY,</div><div class="line">  <span class="attr">childContextTypes</span>: SpecPolicy.DEFINE_MANY,</div><div class="line"></div><div class="line">  <span class="comment">// ==== Definition methods ====</span></div><div class="line">  getDefaultProps: SpecPolicy.DEFINE_MANY_MERGED,</div><div class="line">  <span class="attr">getInitialState</span>: SpecPolicy.DEFINE_MANY_MERGED,</div><div class="line">  <span class="attr">getChildContext</span>: SpecPolicy.DEFINE_MANY_MERGED,</div><div class="line">  <span class="attr">render</span>: SpecPolicy.DEFINE_ONCE,</div><div class="line"></div><div class="line">  <span class="comment">// ==== Delegate methods ====</span></div><div class="line">  componentWillMount: SpecPolicy.DEFINE_MANY,</div><div class="line">  <span class="attr">componentDidMount</span>: SpecPolicy.DEFINE_MANY,</div><div class="line">  <span class="attr">componentWillReceiveProps</span>: SpecPolicy.DEFINE_MANY,</div><div class="line">  <span class="attr">shouldComponentUpdate</span>: SpecPolicy.DEFINE_ONCE,</div><div class="line">  <span class="attr">componentWillUpdate</span>: SpecPolicy.DEFINE_MANY,</div><div class="line">  <span class="attr">componentDidUpdate</span>: SpecPolicy.DEFINE_MANY,</div><div class="line">  <span class="attr">componentWillUnmount</span>: SpecPolicy.DEFINE_MANY,</div><div class="line"></div><div class="line">  <span class="comment">// ==== Advanced methods ====</span></div><div class="line">  updateComponent: SpecPolicy.OVERRIDE_BASE,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> ReactClassMixin = &#123;</div><div class="line">  <span class="attr">replaceState</span>: <span class="function"><span class="keyword">function</span>(<span class="params">newState, callback</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.updater.enqueueReplaceState(<span class="keyword">this</span>, newState);</div><div class="line">    <span class="keyword">if</span> (callback) &#123;</div><div class="line">      <span class="keyword">this</span>.updater.enqueueCallback(<span class="keyword">this</span>, callback, <span class="string">'replaceState'</span>);</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">isMounted</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.updater.isMounted(<span class="keyword">this</span>);</div><div class="line">  &#125;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> ReactClassComponent = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line"><span class="built_in">Object</span>.assign(</div><div class="line">  ReactClassComponent.prototype,</div><div class="line">  ReactComponent.prototype,</div><div class="line">  ReactClassMixin</div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">var</span> ReactClass = &#123;</div><div class="line">  <span class="attr">createClass</span>: <span class="function"><span class="keyword">function</span>(<span class="params">spec</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> Constructor = <span class="function"><span class="keyword">function</span>(<span class="params">props, context, updater</span>) </span>&#123;</div><div class="line">      <span class="comment">// Wire up auto-binding</span></div><div class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.__reactAutoBindPairs.length) &#123;</div><div class="line">        bindAutoBindMethods(<span class="keyword">this</span>);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">this</span>.props = props;</div><div class="line">      <span class="keyword">this</span>.context = context;</div><div class="line">      <span class="keyword">this</span>.refs = emptyObject;</div><div class="line">      <span class="keyword">this</span>.updater = updater || ReactNoopUpdateQueue;</div><div class="line"></div><div class="line">      <span class="keyword">this</span>.state = <span class="literal">null</span>;</div><div class="line">      <span class="keyword">var</span> initialState = <span class="keyword">this</span>.getInitialState ? <span class="keyword">this</span>.getInitialState() : <span class="literal">null</span>;</div><div class="line">      <span class="keyword">this</span>.state = initialState;</div><div class="line">    &#125;;</div><div class="line">    Constructor.prototype = <span class="keyword">new</span> ReactClassComponent();</div><div class="line">    Constructor.prototype.constructor = Constructor;</div><div class="line">    Constructor.prototype.__reactAutoBindPairs = [];</div><div class="line"></div><div class="line">    mixSpecIntoComponent(Constructor, spec);</div><div class="line"></div><div class="line">    <span class="comment">// Initialize the defaultProps property after all mixins have been merged.</span></div><div class="line">    <span class="keyword">if</span> (Constructor.getDefaultProps) &#123;</div><div class="line">      Constructor.defaultProps = Constructor.getDefaultProps();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Reduce time spent doing lookups by setting these on the prototype.</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> methodName <span class="keyword">in</span> ReactClassInterface) &#123;</div><div class="line">      <span class="keyword">if</span> (!Constructor.prototype[methodName]) &#123;</div><div class="line">        Constructor.prototype[methodName] = <span class="literal">null</span>;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> Constructor;</div><div class="line">  &#125;,</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="DOM-ReactDOMFactories"><a href="#DOM-ReactDOMFactories" class="headerlink" title="DOM - ReactDOMFactories"></a>DOM - ReactDOMFactories</h2><p>根据支持的 HTML 标签创建 ReactDOMComponent 类的映射。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://rockets1131.github.io/2017/02/28/React-study-1/" data-id="cizqc0rcl0005h99kvn74chkj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://rockets1131.github.io/2017/02/28/React-study-1/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://rockets1131.github.io/2017/02/28/React-study-1/">评论</a>
     
 
         </footer>
@@ -557,7 +700,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/01/18/Promise/" data-id="cizoxkwlf0006lw9kat2dxe65" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://rockets1131.github.io/2017/01/18/Promise/" data-id="cizqc0rce0004h99ke7bfxk5i" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -625,7 +768,7 @@
 
             
     
-        <a href="http://yoursite.com/2017/01/18/Promise/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2017/01/18/Promise/">评论</a>
+        <a href="http://rockets1131.github.io/2017/01/18/Promise/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://rockets1131.github.io/2017/01/18/Promise/">评论</a>
     
 
         </footer>
@@ -709,7 +852,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2017/01/12/CSS-bubble/" data-id="cizoxkwl10002lw9kpkpd9afh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://rockets1131.github.io/2017/01/12/CSS-bubble/" data-id="cizqc0rc10000h99k3if73g8b" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -777,7 +920,7 @@
 
             
     
-        <a href="http://yoursite.com/2017/01/12/CSS-bubble/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2017/01/12/CSS-bubble/">评论</a>
+        <a href="http://rockets1131.github.io/2017/01/12/CSS-bubble/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://rockets1131.github.io/2017/01/12/CSS-bubble/">评论</a>
     
 
         </footer>
@@ -1071,7 +1214,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/10/09/regular-expressions/" data-id="cizoxkwll0009lw9k945jmuvv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://rockets1131.github.io/2016/10/09/regular-expressions/" data-id="cizqc0rd20009h99ku17oteu7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1139,7 +1282,7 @@
 
             
     
-        <a href="http://yoursite.com/2016/10/09/regular-expressions/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2016/10/09/regular-expressions/">评论</a>
+        <a href="http://rockets1131.github.io/2016/10/09/regular-expressions/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://rockets1131.github.io/2016/10/09/regular-expressions/">评论</a>
     
 
         </footer>
@@ -1251,7 +1394,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/08/03/stamp/" data-id="cizoxkwln000alw9k55p16ckj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://rockets1131.github.io/2016/08/03/stamp/" data-id="cizqc0rd4000ah99kzc4l234r" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1319,7 +1462,7 @@
 
             
     
-        <a href="http://yoursite.com/2016/08/03/stamp/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2016/08/03/stamp/">评论</a>
+        <a href="http://rockets1131.github.io/2016/08/03/stamp/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://rockets1131.github.io/2016/08/03/stamp/">评论</a>
     
 
         </footer>
@@ -1391,7 +1534,7 @@ yield from range(x)
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/06/17/Markdown-rule/" data-id="cizoxkwlc0005lw9kzo0xy1nx" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://rockets1131.github.io/2016/06/17/Markdown-rule/" data-id="cizqc0rc90002h99ks2e8ujnf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1459,7 +1602,7 @@ yield from range(x)
 
             
     
-        <a href="http://yoursite.com/2016/06/17/Markdown-rule/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2016/06/17/Markdown-rule/">评论</a>
+        <a href="http://rockets1131.github.io/2016/06/17/Markdown-rule/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://rockets1131.github.io/2016/06/17/Markdown-rule/">评论</a>
     
 
         </footer>
@@ -1521,7 +1664,7 @@ yield from range(x)
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/06/17/hello-world/" data-id="cizoxkwlg0007lw9kzmiidg4r" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://rockets1131.github.io/2016/06/17/hello-world/" data-id="cizqc0rcz0008h99kybb7f8at" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1589,7 +1732,7 @@ yield from range(x)
 
             
     
-        <a href="http://yoursite.com/2016/06/17/hello-world/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://yoursite.com/2016/06/17/hello-world/">评论</a>
+        <a href="http://rockets1131.github.io/2016/06/17/hello-world/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://rockets1131.github.io/2016/06/17/hello-world/">评论</a>
     
 
         </footer>
@@ -1607,6 +1750,25 @@ yield from range(x)
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/02/28/React-study-2/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/02/28/React-study-2/" class="title">React 源码学习(2) —— Virtual Dom 模型</a></p>
+                            <p class="item-date"><time datetime="2017-02-28T11:32:04.000Z" itemprop="datePublished">2017-02-28</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1684,25 +1846,6 @@ yield from range(x)
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/08/03/stamp/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/08/03/stamp/" class="title">邮票锯齿边框实现</a></p>
-                            <p class="item-date"><time datetime="2016-08-03T03:20:58.000Z" itemprop="datePublished">2016-08-03</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1714,7 +1857,7 @@ yield from range(x)
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -1723,7 +1866,7 @@ yield from range(x)
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -1732,7 +1875,7 @@ yield from range(x)
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/React/" style="font-size: 10px;">React</a>
+            <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/React/" style="font-size: 20px;">React</a>
         </div>
     </div>
 

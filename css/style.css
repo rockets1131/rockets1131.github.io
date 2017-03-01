@@ -180,6 +180,7 @@ code {
 }
 #container > .outer {
   margin-bottom: 30px;
+  padding-top: 80px;
 }
 @media screen and (min-width: 1200px) {
   #main {
@@ -619,7 +620,6 @@ code {
 #profile .inner .bio h2 {
   font-size: 1.3em;
   font-weight: bold;
-  margin-top: 15px;
 }
 #profile .inner .bio p {
   margin: 5px 20px 10px 20px;
@@ -647,7 +647,6 @@ code {
   }
 }
 #profile .inner {
-  margin-top: 80px;
   background: #fff;
 }
 #profile .inner .base-info #avatar {
@@ -795,9 +794,6 @@ code {
 #profile.card .profile-inner:after {
   z-index: 0;
   border-color: transparent transparent #dbdee1 transparent;
-}
-.article {
-  margin: 80px 0 40px;
 }
 .article-inner {
   overflow: hidden;
@@ -1575,7 +1571,7 @@ ol.toc {
   color: #eceff2;
 }
 .timeline-wrap {
-  margin: 40px 20px 40px 40px;
+  margin: 0 20px 0 40px;
   border-left: 3px solid #eceff2;
 }
 @media screen and (max-width: 559px) {
@@ -1741,7 +1737,7 @@ ol.toc {
   margin-right: 5px;
 }
 .widget-wrap {
-  margin: 80px 10px 40px;
+  margin: 0 10px 40px;
 }
 @media screen and (max-width: 559px) {
   .widget-wrap {
